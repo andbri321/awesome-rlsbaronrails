@@ -34,11 +34,13 @@ For this challenge we propose you to create a simple Rails API, that should feed
 
 We provide you the base code which includes an early stage of the "Ingredient" and "Category" models.
 
-To fulfill your goal you should create two endpoints on the CocktailsController:
+To fulfill your goal you should create the flowwing endpoints on the CocktailsController:
 
 1) Display every detail of a certain cocktail. (i.e. Ingredients, Category, Instructions, etc) - [show]
 
-2) List all cocktails while allowing searching by cocktail name and by ingredient name - [index with search]
+2) List all cocktails while allowing searching by cocktail name and by ingredient name (partial matches are allowed) - [index with search]
+
+3) Return a random Cocktail
 
 You should update the Ingredient and Category models and create all the tables necessary to complete the assignment. Keep in mind that a cocktail should have many ingredients and only one category.
 

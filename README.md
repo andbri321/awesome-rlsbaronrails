@@ -34,7 +34,7 @@ For this challenge we propose you to create a simple Rails API, that should feed
 
 We provide you the base code which includes an early stage of the "Ingredient" and "Category" models.
 
-To fulfill your goal you should create the flowwing endpoints on the CocktailsController:
+To fulfill your goal you should create the following endpoints on the CocktailsController:
 
 1) Display every detail of a certain cocktail. (i.e. Ingredients, Category, Instructions, etc) - [show]
 

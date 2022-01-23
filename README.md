@@ -54,3 +54,10 @@ Make sure you write clean code and use Rails best practices.
 Feel free to add any endpoints or features that you find relevant (you can generate resources for other models, i.e. categories and ingredients).
 
 If you need inspiration you check the TheCocktailDB API on https://www.thecocktaildb.com/api.php
+
+
+### Stretch goals
+
+1) Change the search to match only beginnings of words. For example, searching for "o fas" should return a cocktail named "Old Fashioned", if it exists in the database.
+
+2) On the cocktail list, get results both from the database as well as the https://www.thecocktaildb.com/api.php API and show them together.

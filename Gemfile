@@ -28,10 +28,18 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main' # Previously '4-0-dev' or '4-0-maintenance' branch
+  end
 end
 
 group :development do
   gem 'listen', '~> 3.2'
+end
+
+group :test do
+  # Might be other lines here, so simply add after them
+  gem 'factory_bot_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -92,6 +92,8 @@ GEM
     activerecord (6.0.4.4)
       activemodel (= 6.0.4.4)
       activesupport (= 6.0.4.4)
+    activerecord-like (6.1.0)
+      activerecord (~> 6.0, >= 6.0.0)
     activestorage (6.0.4.4)
       actionpack (= 6.0.4.4)
       activejob (= 6.0.4.4)
@@ -109,6 +111,7 @@ GEM
     builder (3.2.4)
     byebug (11.1.3)
     concurrent-ruby (1.1.9)
+    connection_pool (2.2.5)
     crass (1.0.6)
     diff-lcs (1.5.0)
     erubi (1.10.0)
@@ -117,6 +120,10 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faraday (2.1.0)
+      faraday-net_http (~> 2.0)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (2.0.1)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -135,6 +142,8 @@ GEM
     mini_mime (1.1.2)
     minitest (5.15.0)
     msgpack (1.4.4)
+    net-http-persistent (4.0.1)
+      connection_pool (~> 2.2)
     nio4r (2.5.8)
     nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
@@ -192,6 +201,7 @@ GEM
     rubocop-ast (1.15.1)
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
+    ruby2_keywords (0.0.5)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
     sprockets (4.0.2)
@@ -216,10 +226,13 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord-like
   bootsnap (>= 1.4.2)
   byebug
   factory_bot_rails
+  faraday (~> 2.1)
   listen (~> 3.2)
+  net-http-persistent
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   rspec-core!

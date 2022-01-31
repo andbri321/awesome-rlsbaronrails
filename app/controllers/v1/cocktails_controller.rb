@@ -7,7 +7,7 @@ module V1
 
     # GET /cocktails
     def index
-      @cocktails = Cocktail.all
+      @cocktails = Cocktail.filter(cocktail_params)
 
       render json: @cocktails
     end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module V1
+  # versionamento da api, v1/cocktails
   class CocktailsController < ApplicationController
     before_action :set_cocktail, only: %i[show update destroy]
 
@@ -13,6 +14,13 @@ module V1
 
     # GET /cocktails/1
     def show
+      render json: @cocktail
+    end
+
+    # GET /cocktails/random
+    def random
+      @cocktail = Cocktail.order(Arel.sql('RANDOM()')).first
+
       render json: @cocktail
     end
 

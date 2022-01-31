@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Cocktail < ApplicationRecord
+  include Filterable
 
   belongs_to :category
   has_many :ingredients

@@ -24,6 +24,12 @@ module V1
       render json: @cocktail
     end
 
+    # GET /cocktails/list
+    def list
+      @cocktails = list_merged
+      render json: @cocktails
+    end
+
     # POST /cocktails
     def create
       @cocktail = Cocktail.new(cocktail_params)
@@ -57,6 +63,16 @@ module V1
 
     def cocktail_params
       params.require(:cocktail).permit(:name, :category_id)
+    end
+
+    def permited_params
+      params.permit(:name)
+    end
+
+    def list_merged
+      cocktails_api = ApiThecocktaildb.new.list_cocktails
+      cocktails_db = Cocktail.all.to_a
+      cocktails_db.union(cocktails_api)
     end
   end
 end

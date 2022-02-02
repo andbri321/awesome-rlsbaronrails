@@ -66,7 +66,7 @@ module V1
     end
 
     def permited_params
-      params.permit(:name)
+      params.permit(:name,:ingredient)
     end
 
     def list_merged

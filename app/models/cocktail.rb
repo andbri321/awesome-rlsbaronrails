@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Cocktail < ApplicationRecord
+  paginates_per 5
   include Filterable
 
   belongs_to :category

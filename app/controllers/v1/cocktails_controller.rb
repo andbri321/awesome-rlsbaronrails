@@ -21,7 +21,7 @@ module V1
     def random
       @cocktail = Cocktail.order(Arel.sql('RANDOM()')).first
 
-      render json: @cocktail
+      render json: @cocktail, meta: {info: 'bebida gerada aleatoriamente'}
     end
 
     # GET /cocktails/list

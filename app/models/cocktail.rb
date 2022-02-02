@@ -13,4 +13,8 @@ class Cocktail < ApplicationRecord
     words = words.map.with_index { |w, i| i.zero? ? "#{w}%" : "% #{w}%" }
     where.like_and(name: words)
   }
+
+  scope :by_ingredient_name, lambda { |name|
+    joins(:ingredients).where('lower(ingredients.name) LIKE ?', "%#{name.downcase}%").distinct
+  }
 end

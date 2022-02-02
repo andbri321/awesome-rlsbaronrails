@@ -7,7 +7,7 @@ module V1
 
     # GET /cocktails
     def index
-      @cocktails = Cocktail.filter(permited_params)
+      @cocktails = Cocktail.filter(permited_params).page params[:page]
 
       render json: @cocktails
     end
@@ -26,7 +26,9 @@ module V1
 
     # GET /cocktails/list
     def list
-      @cocktails = list_merged
+      total = list_merged.size
+      @cocktails = Kaminari.paginate_array(list_merged, total_count: total).page(params[:page]).per(3)
+
       render json: @cocktails
     end
 
@@ -66,7 +68,7 @@ module V1
     end
 
     def permited_params
-      params.permit(:name,:ingredient)
+      params.permit(:name, :ingredient)
     end
 
     def list_merged

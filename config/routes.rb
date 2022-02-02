@@ -6,5 +6,8 @@ Rails.application.routes.draw do
       get 'random', on: :collection
       get 'list', on: :collection
     end
+
+    resources :users
+  
   end
 end

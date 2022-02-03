@@ -11,7 +11,9 @@ module V1
 
     # GET /users/1
     def show
-      render json: @user
+      if stale?(last_modified: @user.updated_at)
+        render json: @user
+      end
     end
 
     # POST /users

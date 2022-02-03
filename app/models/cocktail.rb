@@ -5,7 +5,7 @@ class Cocktail < ApplicationRecord
   include Filterable
 
   belongs_to :category
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :ingredients
 
   validates :name, presence: true, uniqueness: true

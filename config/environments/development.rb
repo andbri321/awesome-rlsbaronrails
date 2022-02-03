@@ -53,3 +53,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
+#adicionado para rodar só no ambiente de desenvolvimento e não quebrar os testes
+ActiveModel::Serializer.config.adapter = :json_api

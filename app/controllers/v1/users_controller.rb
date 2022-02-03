@@ -1,5 +1,9 @@
 module V1
   class UsersController < ApplicationController
+    include ActionController::HttpAuthentication::Basic::ControllerMethods
+    include ActionController::HttpAuthentication::Token::ControllerMethods
+
+    before_action :authenticate, only: [:index]
     before_action :set_user, only: [:show, :update, :destroy]
 
     # GET /users
@@ -42,6 +46,13 @@ module V1
     end
 
     private
+      def authenticate
+        authenticate_or_request_with_http_token do |token, options|
+          hmac_secret =  ENV['hmac_secret']
+          JWT.decode token, hmac_secret, true, { :algorithm => 'HS256'}
+        end
+      end
+
       # Use callbacks to share common setup or constraints between actions.
       def set_user
         @user = User.find(params[:id])

@@ -70,7 +70,7 @@ RSpec.describe 'v1/cocktails', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        FactoryBot.create(:cocktail).attributes.symbolize_keys.except(:id, :created_at, :updated_at)
+        FactoryBot.build(:cocktail).attributes.symbolize_keys.except(:id, :created_at, :updated_at)
       end
 
       it 'updates the requested cocktail' do
@@ -81,8 +81,7 @@ RSpec.describe 'v1/cocktails', type: :request do
         cocktail.reload
         response_json = JSON.parse(response.body)
         expect(response_json).to match(hash_including(
-                                         'name' => new_attributes[:name],
-                                         'category_id' => new_attributes[:category_id]
+                                         'name' => new_attributes[:name]
                                        ))
       end
 

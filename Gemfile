@@ -19,6 +19,7 @@ gem 'activerecord-like'
 gem 'faraday', '~> 2.1'
 gem 'kaminari'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'jwt'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

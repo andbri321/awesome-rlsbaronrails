@@ -7,7 +7,8 @@ module V1
 
     # GET /cocktails
     def index
-      @cocktails = Cocktail.filter(permited_params).page params[:page]
+      page_num = params[:page].try(:[],:number)
+      @cocktails = Cocktail.filter(permited_params).page page_num
 
       render json: @cocktails
     end

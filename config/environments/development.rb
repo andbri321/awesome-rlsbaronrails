@@ -55,3 +55,4 @@ Rails.application.configure do
 end
 #adicionado para rodar só no ambiente de desenvolvimento e não quebrar os testes
 ActiveModel::Serializer.config.adapter = :json_api
+ENV['hmac_secret'] = "MysecretK3y"

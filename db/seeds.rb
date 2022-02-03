@@ -41,3 +41,17 @@ Category.create(ingredients)
 # cocktails_list.each do |cocktail|
 #   # Cocktail.create ...
 # end
+
+
+p "--- Creating cocktails"
+cocktails = cocktails_list.map { |c|  { 
+    name: c['name'],
+    category_id: Category.find_by_name(c['category']).id
+  } }.uniq
+
+result_cocktail = Cocktail.create(cocktails)
+cocktail_persisted = result_cocktail.last.persisted?
+
+p "--- #{cocktail_persisted ? 'Created cocktails': 'cocktails creation failed'}"
+p "--- cocktail errors #{result_cocktail.last.errors.to_json}" if result_cocktail.last.errors.any?
+
